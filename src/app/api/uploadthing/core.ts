@@ -23,7 +23,7 @@ export const ourFileRouter = {
         const configuration = await db.configuration.create({
           data: {
             imageUrl: file.url,
-            hieght: height || 500,
+            height: height || 500,
             width: width || 500,
           },
         });
