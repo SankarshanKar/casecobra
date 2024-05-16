@@ -5,10 +5,10 @@ import { ArrowRight } from "lucide-react";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 const Navbar = async () => {
-  const { getUser } = getKindeServerSession()
+  const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  const isAdmin = user?.email === process.env.ADMIN_EMAIL
+  const isAdmin = user?.email === process.env.ADMIN_EMAIL;
 
   return (
     <nav className="sticky z-[100] h-14 inset-x-0 top-0 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all">
@@ -32,7 +32,7 @@ const Navbar = async () => {
                 </Link>
                 {isAdmin ? (
                   <Link
-                    href="/api/auth/logout"
+                    href="/dashboard"
                     className={buttonVariants({
                       size: "sm",
                       variant: "ghost",
@@ -49,7 +49,7 @@ const Navbar = async () => {
                   })}
                 >
                   Create case
-                  <ArrowRight className="m1-1.5 h-5 w-5" />
+                  <ArrowRight className="ml-1.5 h-5 w-5" />
                 </Link>
               </>
             ) : (
@@ -63,6 +63,7 @@ const Navbar = async () => {
                 >
                   Sign up
                 </Link>
+
                 <Link
                   href="/api/auth/login"
                   className={buttonVariants({
@@ -70,7 +71,7 @@ const Navbar = async () => {
                     variant: "ghost",
                   })}
                 >
-                  Log in
+                  Login
                 </Link>
 
                 <div className="h-8 w-px bg-zinc-200 hidden sm:block" />
@@ -83,7 +84,7 @@ const Navbar = async () => {
                   })}
                 >
                   Create case
-                  <ArrowRight className="m1-1.5 h-5 w-5" />
+                  <ArrowRight className="ml-1.5 h-5 w-5" />
                 </Link>
               </>
             )}
